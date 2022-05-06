@@ -1,5 +1,3 @@
-from unittest.mock import inplace
-
 import pandas as pd
 
 record1 = pd.Series({'Name': 'Bogdan', 'Student': 'IA-94', 'Score': '75'})
