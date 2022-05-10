@@ -18,3 +18,8 @@ cols = [x.lower().strip() for x in cols]
 
 newdf.columns = cols
 newdf.head()
+# Lesson 3
+admit_mask = newdf['chance of admit'] > 0.7
+newdf.where(admit_mask).head()
+print(newdf.where(admit_mask).dropna().head())
+print(newdf[newdf['chance of admit'] > 0.7].head())
