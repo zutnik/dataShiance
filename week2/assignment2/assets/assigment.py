@@ -30,8 +30,12 @@ print(proportion_of_education())
 def average_influenza_doses():
     import pandas as pd
     df = pd.read_csv('NISPUF17.csv', index_col=0)
+    df = df[['CBF_01', 'P_NUMFLU']]
+    df.isnull().sum()
+    df = df[df['P_NUMFLU'].notna()]
+
     total1 = len(df[df['CBF_01'] == 1])
-    total2 = len(df[df['P_NUMFLU'] == 2])
+    total2 = len(df[df['CBF_01'] == 2])
     x = df[df['CBF_01'] == 1]['P_NUMFLU'].sum()
     y = df[df['CBF_01'] == 2]['P_NUMFLU'].sum()
     result = (x / total1, y / total2)
